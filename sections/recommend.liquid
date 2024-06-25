@@ -1,0 +1,40 @@
+<section id="recommend">
+    <div class="section_inner">
+        <div class="recommend_title">
+            <h3><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/recommend_icon.svg" alt="">こちらもおすすめ！</h3>
+        </div>
+        <ul class="product_list">
+            {% assign counter = 0 %}
+    {% for product in collections.all.products %}
+        {% if counter < 5 %}
+                <li>
+                    <a href="{{ product.url }}">
+                        <div class="product_img">
+                            <img src="{{ product.featured_image.src | img_url: 'master' }}" alt="">
+                        </div>
+                        {% for tag in product.tags %}
+                        <span class="product_category">{{ tag }}</span>
+                    {% endfor %}
+                        {{ product.title }}
+                        <span class="product_price">{{ product.price | money }}</span>
+                    </a>
+                </li>
+                {% assign counter = counter | plus: 1 %}
+                {% else %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "recommend",
+  "presets": [
+    {
+      "name": "recommend"
+    }
+  ]
+}
+{% endschema %}

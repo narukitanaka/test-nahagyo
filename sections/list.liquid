@@ -1,0 +1,73 @@
+<!------------------------ 下層ファーストビュー ---------------------->
+<section id="fv_under">
+    <img class="fv_deco_01" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_01.png" alt="">
+    <div class="section_title">
+        <img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/section_title2.png" alt="">
+        <h1>オンラインショップ<br class="is_sp">-商品一覧</h1>
+        <span>ONLINE SHOP - LINE UP</span>
+    </div>
+    <img class="fv_deco_02" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_02.png" alt="">
+</section>
+
+<!------------------------ ページ内リンク ---------------------->
+
+<section id="page_link" class="list_page_link">
+    <div class="section_inner_00 section_inner">
+        <a href="/collections/squid">ソデイカ</a>
+        <a href="/collections/tuna">マグロ・カツオ</a>
+        <a href="/collections/other">その他加工品</a>
+    </div>
+</section>
+
+<!------------------------ 商品一覧 ---------------------->
+<section id="list">
+    <div class="section_inner">
+        <!-- 並び順 -->
+        <div class="sort_wrap">
+            <span>並び順：</span>
+            <select name="sort_by" id="SortBy" class="sort">
+                <option value="manual">おすすめ順</option>
+                <option value="created-descending">新着順</option>
+                <option value="price-ascending">価格が安い順</option>
+                <option value="price-descending">価格が高い順</option>
+            </select>
+        </div>
+
+        <ul class="product_list">
+            {% for product in collection.products %}
+                <li>
+                    <a href="{{ product.url }}">
+                        <div class="product_img">
+                            <img src="{{ product.featured_image.src | img_url: 'master' }}" alt="">
+                        </div>
+                        {% for tag in product.tags %}
+                        <span class="product_category">{{ tag }}</span>
+                    {% endfor %}
+                        {{ product.title }}
+                        <span class="product_price">{{ product.price | money }}（税込）</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "list",
+  "presets": [
+    {
+      "name": "list"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+    // セレクトボックスが変更されたときに並び替えを実行する
+    document.getElementById('SortBy').onchange = function(e) {
+      var url = new URL(window.location.href);
+      url.searchParams.set('sort_by', e.currentTarget.value);
+      window.location = url.href;
+    }
+</script>

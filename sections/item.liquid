@@ -1,0 +1,135 @@
+<!-- ---------------------- 商品詳細 -------------------- -->
+<section id="item">
+  <div class="section_inner">
+    <div class="list_content">
+      <div class="item_wrapper">
+        <div class="p-merchandise__img-content">
+          <div class="p-merchandise__img-wrapper">
+            <div class="swiper03">
+              <div class="swiper-wrapper">
+                {% for image in product.images %}
+                  <div class="swiper-slide">
+                    <div class="p-img-wrapper">
+                      <img src="{{ image.src | img_url: 'master' }}" alt="">
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+              <!-- /.swiper-wrapper -->
+            </div>
+            <!-- /.swiper03 -->
+            <div class="thumb-list">
+              {% for image in product.images %}
+                <div class="thumb-item">
+                  <a
+                    class="thumb-link"
+                    href="javascript:void(0);"
+                    onclick="thumbnail({{ forloop.index }})"
+                  >
+                    <img src="{{ image.src | img_url: 'master' }}" alt="">
+                  </a>
+                </div>
+              {%- endfor -%}
+            </div>
+            <!-- /.thumb-list -->
+          </div>
+          <!-- /.p-merchandise__img-wrapper -->
+        </div>
+        <!-- /.left -->
+        <div class="p-merchandise__detail-content">
+          <div class="item_description">
+            <div class="item_title">
+              {% for tag in product.tags %}
+                <span class="hosoku">カテゴリ：{{ tag }}</span>
+              {% endfor %}
+              <h2>{{ product.title }}</h2>
+              <p>
+                {{ product.price | money }}
+                <span>（税込）</span>
+              </p>
+            </div>
+
+            <div class="add_to_cart">
+              <form method="post" action="/cart/add" id="AddToCartForm">
+                <input
+                  type="hidden"
+                  name="id"
+                  value="{{ product.variants[0].id }}"
+                >
+                <div class="product-quantity_wrapper">
+                  <!-- <p class="c-ttl">数量</p> -->
+                  <div class="product-quantity">
+                    <button type="button" id="minus">ー</button>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+                    <button type="button" id="plus">＋</button>
+                  </div>
+                </div>
+                <div class="cart_btn">
+                  <button type="submit" class="item_btn">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/cart_add.svg"
+                      alt=""
+
+                    >カートに入れる
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="explain_wrapper">
+              <h3>【商品説明】</h3>
+              <p>
+                {{ product.content }}
+              </p>
+            </div>
+
+            <table class="item_text">
+              <tr>
+                {% if product.metafields.custom._product_content != empty %}
+                  <th>商品内容</th>
+                  <td>{{ product.metafields.custom._product_content }}</td>
+                {% endif %}
+              </tr>
+              <tr>
+                {% if product.metafields.custom._product_kepp != empty %}
+                  <th>保存方法</th>
+                  <td>{{ product.metafields.custom._product_keep }}</td>
+                {% endif %}
+              </tr>
+
+              <tr>
+                {% if product.metafields.custom._product_expiration != empty %}
+                  <th>賞味期限</th>
+                  <td>{{ product.metafields.custom._product_expiration }}</td>
+                {% endif %}
+              </tr>
+              <tr>
+                {% if product.metafields.custom._product_materials != empty %}
+                  <th>原材料名</th>
+                  <td>{{ product.metafields.custom._product_materials }}</td>
+                {% endif %}
+              </tr>
+              <tr>
+                {% if product.metafields.custom._product_allergen != empty %}
+                  <th>アレルゲン</th>
+                  <td>{{ product.metafields.custom._product_allergen }}</td>
+                {% endif %}
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "item",
+  "presets": [
+    {
+      "name": "item"
+    }
+  ]
+}
+{% endschema %}

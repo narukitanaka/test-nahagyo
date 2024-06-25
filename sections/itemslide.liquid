@@ -1,0 +1,25 @@
+
+<section id="item_slide">
+    <ul class="item_slide">
+        <li>
+            {% if product.metafields.custom._tokushu_img != empty %}
+                {% assign image_url = product.metafields.custom._tokushu_img | img_url: 'master' %}
+                <img src="{{ image_url }}" alt="">
+            {% endif %}
+
+            {% if product.metafields.custom.tokushu_text != empty %}
+                <p>{{ product.metafields.custom.tokushu_text }}</p>
+            {% endif %}
+        </li>
+    </ul>
+</section>
+{% schema %}
+{
+  "name": "itemslide",
+  "presets": [
+    {
+      "name": "itemslide"
+    }
+  ]
+}
+{% endschema %}

@@ -205,21 +205,21 @@ $(function () {
 
 
 // バナーのスライド
-$(function () {
-    $('.item_slide').slick({
-        arrows: true, // スライド矢印を有効にする
-        dots: false,
-        infinite: true,
-        autoplay: true,
-        speed: 3000,
-        centerMode: true,
-        centerPadding: "0px",
-        slidesToShow: 1, // 表示するスライド数
-        variableWidth: true, // スライドの幅を可変にする
-        prevArrow: '<img src="./images/item_slide_previous.svg" class="slide-arrow prev-arrow">',
-    nextArrow: '<img src="./images/item_slide_next.svg" class="slide-arrow next-arrow">',
-    });
-});
+// $(function () {
+//     $('.item_slide').slick({
+//         arrows: true, // スライド矢印を有効にする
+//         dots: false,
+//         infinite: true,
+//         autoplay: true,
+//         speed: 3000,
+//         centerMode: true,
+//         centerPadding: "0px",
+//         slidesToShow: 1, // 表示するスライド数
+//         variableWidth: true, // スライドの幅を可変にする
+//         prevArrow: '<img src="./images/item_slide_previous.svg" class="slide-arrow prev-arrow">',
+//     nextArrow: '<img src="./images/item_slide_next.svg" class="slide-arrow next-arrow">',
+//     });
+// });
 
 
 //   ハンバーガーメニュー
