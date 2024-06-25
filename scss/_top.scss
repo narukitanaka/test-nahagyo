@@ -1,0 +1,760 @@
+@use "variable" as v;
+
+/*************************************************
+ファーストビュー
+*************************************************/
+#fv {
+    width: v.pxtovw(1440);
+    height: v.pxtovw(1194);
+    position: relative;
+    overflow: hidden;
+    @include mq(){
+        width: 100%;
+        height: v.pxtovw_sp(720);
+    }
+
+    .fv_img_wrapper {
+        height: v.pxtovw(1194);
+        .kaisen {
+            position: absolute;
+            width: v.pxtovw(668);
+            height: v.pxtovw(636);
+            left: v.pxtovw(-156);
+            top: v.pxtovw(-40);
+            z-index: 2;
+            @include mq(){
+                width: v.pxtovw_sp(318);
+                height: v.pxtovw_sp(303);
+                left: v.pxtovw_sp(-156);
+                top: v.pxtovw_sp(-10);
+            }
+        }
+        .asa {
+            position: absolute;
+            width: v.pxtovw(350);
+            height: v.pxtovw(350);
+            top: v.pxtovw(310);
+            right: v.pxtovw(-96);
+            @include mq(){
+                width: v.pxtovw_sp(204);
+                height: v.pxtovw_sp(204);
+                right: v.pxtovw_sp(-110);
+                top: v.pxtovw_sp(85);
+            }
+        }
+        .ika {
+            position: absolute;
+            width: v.pxtovw(546);
+            height: v.pxtovw(541);
+            top: v.pxtovw(653);
+            right: v.pxtovw(-65);
+            z-index: 2;
+            @include mq(){
+                width: v.pxtovw_sp(250);
+                height: v.pxtovw_sp(248);
+                right: v.pxtovw_sp(-100);
+                top: v.pxtovw_sp(301);
+            }
+        }
+        img {
+            opacity: 0;
+            transform: translateY(50px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+        img.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .cp_pc {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: v.pxtovw(176);
+        @include mq(){
+            width: v.pxtovw_sp(138);
+            top: v.pxtovw_sp(134);
+        }
+    }
+
+
+    .fv_deco_01 {
+        position: absolute;
+        mix-blend-mode: overlay !important;
+        display: block;
+        width: v.pxtovw(255);
+        height: v.pxtovw(454);
+        top: v.pxtovw(-10);
+        right: v.pxtovw(76);
+        // background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//fv_deco_01.png);
+        // z-index: 1;
+        @include mq(){
+            width: v.pxtovw_sp(130);
+            height: v.pxtovw_sp(222);
+            right: v.pxtovw_sp(18);
+            top: v.pxtovw_sp(-35);
+        }
+    }
+    .fv_deco_02 {
+        mix-blend-mode: overlay !important;
+        position: absolute;
+        left: v.pxtovw(-172);
+        top: v.pxtovw(460);
+        width: v.pxtovw(717);
+        height: v.pxtovw(692);
+        @include mq(){
+            width: v.pxtovw_sp(340);
+            height: v.pxtovw_sp(419);
+            left: v.pxtovw_sp(-185);
+            top: v.pxtovw_sp(290);
+        }
+    }
+}
+
+/*************************************************
+バナースライド
+*************************************************/
+#banner {
+    transform: translateY(v.pxtovw(-50));
+    .banner_bg {
+        background-color: #285aa8;
+        padding: 90px 0;
+        box-shadow: inset 0 4px 5px #00000025;
+        @include mq(){
+            padding: 38px 20px;
+        }
+        // .slick-slide{
+        //     width: 100%!important;
+        // }
+        .banner_slide {
+            li {
+                margin: 0 10px;
+                @include mq(){
+                    margin: 0;
+                }
+                a {
+                    display: block;
+                    img {
+                        display: block !important;
+                        width: 100% !important;
+                    }
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+/*************************************************
+オンラインショップ
+*************************************************/
+#ec {
+    position: relative;
+    padding: 80px 0 125px;
+    @include mq(){
+        padding: 50px 20px 130px
+    }
+    .section_inner {
+        @include base_width;
+        .ec_title {
+            margin-bottom: 65px;
+            p {
+                color: #285aa8;
+                text-align: center;
+                font-size: 22px;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: 3.74px;
+                margin-bottom: 10px;
+            }
+            h2 {
+                width: fit-content;
+                margin: 0 auto;
+                position: relative;
+                color: #285aa8;
+                text-align: center;
+                font-size: 26px;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: 4.42px;
+                margin-bottom: 17px;
+                &::before {
+                    position: absolute;
+                    content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//ec_vector_01.svg);
+                    width: 9.5px;
+                    height: 22px;
+                    left: -30px;
+                }
+                &::after {
+                    position: absolute;
+                    content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//ec_vector_02.svg);
+                    width: 9.5px;
+                    height: 22px;
+                    right: -30px;
+                }
+            }
+            span {
+                color: #2ca2dd;
+                font-family: Futura;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                display: block;
+                text-align: center;
+                letter-spacing: 2.21px;
+            }
+        }
+
+        .ec_link {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            .sp_deco01,.sp_deco02{
+                display: none;
+            }
+            @include mq(){
+                display: block;
+                .sp_deco01{
+                    display: block;
+                    position: absolute;
+                    left: v.pxtovw_sp(-58);
+                    top: v.pxtovw_sp(-60);
+                }
+                .sp_deco02{
+                    display: block;
+                    position: absolute;
+                    right: v.pxtovw_sp(-50);
+                    bottom: v.pxtovw_sp(-60);
+                }
+
+            }
+            .ec_link_01 {
+                display: block;
+                .btn_01 {
+                    margin-top: 10px;
+                }
+                @include mq(){
+                    display: none;
+                }
+            }
+            .ec_link_02 {
+                padding: 45px 23px 23px;
+                width: 385px;
+                height: 264px;
+                border-radius: 7px;
+                background: #fff;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+                background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//ec_link_02.png);
+                background-repeat: no-repeat;
+                color: #285aa8;
+                font-size: 20px;
+                letter-spacing: 3.4px;
+                text-align: center;
+                display: block;
+                @include mq(){
+                    width: 100%;
+                    padding: 40px 20px 21px;
+                    background-size: cover;
+                    height: 240px;
+                    font-size: 18px;
+                    text-align: center;
+                }
+                img {
+                    display: block;
+                    width: 333px;
+                    height: 85px;
+                    margin-bottom: 20px;
+                    @include mq(){
+                        width: 304px;
+                        height: 77px;
+                    }
+                }
+                .btn_02 {
+                    margin: 0 auto;
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+/*************************************************
+那覇魚類について
+*************************************************/
+#top_about {
+    width: 100%;
+    position: relative;
+    padding-top: 40px;
+    height: 670px;
+    @include mq(){
+        padding: 0 20px;
+        height: v.pxtovw_sp(828);
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//top_about_bg.png);
+        width: 100%;
+        // height: v.pxtovw(34);
+        height: 703px;
+        background-size: cover;
+        left: 0;
+        z-index: -1;
+        top: -33px;
+        // top: v.pxtovw(-33);
+        mix-blend-mode: multiply;
+        @include mq(){
+            height: 828px;
+            height: v.pxtovw_sp(861);
+        }
+    }
+    // &::after {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     // padding: 40px 0 100px;
+    //     background-color: #2ca2dd;
+    //     mix-blend-mode: multiply;
+    //     width: 100%;
+    //     height: v.pxtovw(670);
+    //     content: "";
+    //     z-index: -1;
+    // }
+    .section_inner {
+        max-width: 1070px;
+        width: 100%;
+        margin: 0 auto;
+        .top_about_wrap {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            @include mq(){
+                display: block;
+            }
+            a {
+                display: block;
+                color: #fff;
+                text-align: center;
+                letter-spacing: 3.4px;
+                @include mq(){
+                    margin-bottom: 40px;
+                    letter-spacing: 3.06px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+                img {
+                    display: block;
+                    margin-bottom: 20px;
+                    @include mq(){
+                        width: 100%;
+                    }
+                }
+                .btn_01 {
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+            &::before {
+                position: absolute;
+                content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//top_about_deco_01.png);
+                top: 30px;
+                left: -90px;
+                width: 10px;
+                height: 191px;
+            }
+            &::after {
+                position: absolute;
+                content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//top_about_deco_02.png);
+                top: 30px;
+                right: -90px;
+                width: 10px;
+                height: 191px;
+            }
+        }
+    }
+}
+
+/*************************************************
+取扱商品
+*************************************************/
+#top_catalog {
+    .top_catalog_flex {
+        display: flex;
+        height: 450px;
+        @include mq(){
+            display: block;
+            height: v.pxtovw_sp(600);
+        }
+
+        .top_catalog_slide {
+            display: flex;
+            width: 720px;
+            @include mq(){
+                display: none;
+            }
+
+            .swiper-container {
+                width: 360px;
+                height: 450px;
+                overflow: hidden;
+                .swiper-wrapper {
+                    transition-timing-function: linear;
+                }
+
+                .swiper-slide {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 200px; /* 画像の高さ */
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .top_catalog_right {
+            // width: 720px;
+            width: 100%;
+            padding: 80px 0;
+            background-color: #ffffff80;
+            @include mq(){
+                padding: 35px 0 40px;
+            }
+            .section_title {
+                h2 {
+                    color: #285aa8;
+                }
+            }
+
+            p {
+                color: #285aa8;
+                text-align: center;
+                font-size: 18px;
+                letter-spacing: 3.06px;
+            }
+            .btn_02 {
+                margin: 0 auto;
+                margin-top: 40px;
+            }
+        }
+
+        // sp
+        .catalog_sp_01{
+            display: none;
+            @include mq(){
+                display: flex;
+                li{
+                    width: 252px!important;
+                    img{
+                        display: block;
+                        width: 252px!important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*************************************************
+新着情報
+*************************************************/
+#top_news {
+    position: relative;
+    @include mq(){
+        padding: 0 20px;
+    }
+    .deco_04 {
+        position: absolute;
+        display: block;
+        mix-blend-mode: overlay;
+        left: 0;
+        top: -25px;
+        z-index: -1;
+        @include mq(){
+            width: v.pxtovw_sp(180);
+            height: v.pxtovw_sp(321);
+            top: -70px;
+            left: -50px;
+        }
+    }
+    .section_inner {
+        max-width: 970px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 115px 0 100px;
+        @include mq(){
+            padding-top: 35px;
+        }
+        .section_title {
+            h2 {
+                color: #285aa8;
+            }
+        }
+
+        .latest_news {
+            margin-bottom: 50px;
+            a {
+                position: relative;
+                width: 100%;
+                color: #285aa8;
+                display: block;
+                padding-bottom: 20px;
+                font-weight: 700;
+                letter-spacing: 2.72px;
+                margin-bottom: 20px;
+                font-size: 16px;
+                border-bottom: 3px dotted #285aa8;
+                @include mq(){
+                    font-size: 14px;
+                }
+                span {
+                    display: inline-block;
+                    font-size: 16px;
+                    letter-spacing: 2.72px;
+                    margin-right: 42px;
+                    @include mq(){
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//news_btn.svg);
+                    background-size: contain;
+                    top: 0;
+                    right: 0;
+                    width: 30px;
+                    height: 30px;
+                    @include mq(){
+                        content: none;
+                    }
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        .btn_01 {
+            margin: 0 auto;
+        }
+    }
+}
+
+/*************************************************
+お問い合わせ
+*************************************************/
+#top_contact {
+    position: relative;
+   @include mq(){
+    padding-bottom:  v.pxtovw_sp(43);
+   }
+    .top_contact_bg {
+        background-color: #fff;
+        &::before {
+            position: absolute;
+            content: "";
+            background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//top_contact_bg.png);
+            background-size: cover;
+            background-position: center;
+            // mix-blend-mode: multiply;
+            filter: blur(8.25px);
+            width: 100%;
+            height: v.pxtovw(647);
+            // z-index: -1;
+            @include mq(){
+                background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//top_contact_bg_sp.png);
+                height: 100%;
+            }
+        }
+    }
+
+    .section_inner {
+        padding: 50px 0 145px;
+        @include mq(){
+            padding: 50px 20px 60px;
+        }
+        @include base_width;
+        .section_title {
+            h2 {
+                color: #285aa8;
+            }
+        }
+
+        .top_contact_wrap {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 45px;
+            @include mq(){
+                display: block;
+                margin-bottom: 0;
+            }
+            .top_tel {
+                padding: 17px 0 12px;
+                width: 600px;
+                height: 127px;
+                border-radius: 10px;
+                background: #fff;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+                @include mq(){
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 20px;
+                }
+                p {
+                    color: #2ca2dd;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 700;
+                    letter-spacing: 3.4px;
+                    margin-bottom: 3px;
+                    @include mq(){
+                        font-size: 16px;
+                    }
+                }
+                a {
+                    display: block;
+                    color: #285aa8;
+                    text-align: center;
+                    font-family: Futura;
+                    font-size: 32px;
+                    font-weight: 700;
+                    letter-spacing: 5.44px;
+                    margin-bottom: 5px;
+                    @include mq(){
+                        font-size: 24px;
+                        img{
+                            width: 24px;
+                        }
+                    }
+                }
+                .is_pc_span {
+                    display: block;
+                    color: #2ca2dd;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 400;
+                    @include mq(){
+                        display: none;
+                    }
+                }
+                &:hover {
+                    transform: translateY(3px);
+                    transition: 0.1s;
+                }
+                .is_sp_span{
+                    display: none;
+                    @include mq(){
+                        display: block;
+                        color: #2ca2dd;
+                    text-align: center;
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.6;
+                    }
+                }
+            }
+
+            .top_form {
+                padding: 42px 0;
+                width: 600px;
+                height: 127px;
+                border-radius: 10px;
+                background: #fff;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+                @include mq(){
+                    width: 100%;
+                    height: 88px;
+                    margin-bottom: 20px;
+                    padding: 30px 0 22px;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: #285aa8;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 22px;
+                    font-weight: 700;
+                    letter-spacing: 3.74px;
+                    margin-bottom: 5px;
+                    @include mq(){
+                        font-size: 18px;
+                        letter-spacing: 1.2px;
+                    }
+                    img {
+                        display: block;
+                        margin-right: 25px;
+                        @include mq(){
+                            width: 33px;
+                        }
+                    }
+                }
+                &:hover {
+                    transform: translateY(3px);
+                    transition: 0.1s;
+                }
+            }
+        }
+
+        .top_faq {
+            padding: 40px;
+            width: 100%;
+            height: 127px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            display: flex;
+            align-items: center;
+            @include mq(){
+                display: block;
+                height: auto;
+                padding: 25px 20px;
+            }
+            h3 {
+                display: flex;
+                align-items: center;
+                color: #285aa8;
+                font-size: 26px;
+                font-weight: 700;
+                letter-spacing: 4.42px;
+                margin-right: 54px;
+                @include mq(){
+                    display: block;
+                    font-size: 18px;
+                    text-align: center;
+                    margin: 0 auto 15px;
+                    img{
+                        display: block;
+                        text-align: center;
+                        margin: 0 auto 10px;
+                    }
+                }
+            }
+            p {
+                color: #285aa8;
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 2.72px;
+                margin-right: 100px;
+                @include mq(){
+                    font-size: 15px;
+                    margin-right: 0;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}

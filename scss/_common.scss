@@ -1,0 +1,402 @@
+/*************************************************
+common-style
+*************************************************/
+@use "variable" as v;
+@mixin base_width {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1240px;
+}
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+
+// ブレイクポイント
+// PC基準でコーディングする場合
+$breakpoints: (
+  "sm": "screen and (max-width: 599px)",
+  //スマホ
+  "md": "screen and (max-width: 1024px)",
+  //タブレット
+) !default;
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+
+// スマホ基準でコーディングする場合
+// $breakpoints: (
+//   "md": "screen and (min-width: 600px)", //タブレット
+//   "lg": "screen and (min-width: 1025px)", //パソコン
+// ) !default;
+// @mixin mq($breakpoint: sm) {
+//   @media #{map-get($breakpoints , $breakpoint)} {
+//     @content;
+//   }
+// }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-margin: 100px;
+}
+
+.is_pc {
+  display: block;
+  @include mq() {
+    display: none;
+  }
+}
+
+.is_sp {
+  display: none;
+  @include mq() {
+    display: block;
+  }
+}
+
+body {
+  // position: relative;
+  font-family: YakuHanJP, "Zen Kaku Gothic New", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo,
+    sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  // background-color: #285aa8;
+}
+main {
+  position: relative;
+  z-index: 0;
+  background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files/bg.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  @include mq() {
+    overflow: hidden;
+  }
+}
+
+/*************************************************
+あしらい
+*************************************************/
+// 03
+.deco_03 {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  top: v.pxtovw(1567);
+  display: block;
+  mix-blend-mode: overlay;
+  width: v.pxtovw(504);
+  height: v.pxtovw(682);
+  pointer-events: none;
+  @include mq(){
+    top: v.pxtovw_sp(840);
+    right: v.pxtovw_sp(-45);
+    width: v.pxtovw_sp(200);
+  height: v.pxtovw_sp(282);
+  }
+
+}
+
+/*************************************************
+追従
+*************************************************/
+.follow {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  display: none;
+  transition: 0.2s;
+  // top: v.pxtovw(1474);
+  z-index: 999;
+  width: 80px;
+  border-radius: 10px 0px 0px 10px;
+  background: #fff;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  padding-top: 8px;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      display: block;
+      width: 64px;
+    }
+    span {
+      display: flex;
+      justify-content: center;
+      width: 80px;
+      height: 41px;
+      border-radius: 0px 0px 0px 10px;
+      background: #2ca2dd;
+      margin-top: 8px;
+      img {
+        display: block;
+        width: 45px;
+      }
+    }
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+  @include mq() {
+    display: none !important;
+  }
+}
+
+.follow_2 {
+  display: block;
+  @include mq(){
+    display: none;
+  }
+}
+
+.follow_sp {
+  display: none;
+  @include mq() {
+    display: block;
+    position: fixed;
+    right: 0;
+    bottom: 90px;
+    z-index: 900;
+    a {
+      display: block;
+      img {
+        display: inline-block;
+        max-width: 230px;
+        width: 100%;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+.test {
+  @include mq() {
+    // スマホ用css
+  }
+}
+
+// /iOSでのデフォルトスタイルをリセット /
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &::focus {
+    outline-offset: -2px;
+  }
+}
+
+/*************************************************
+ボタン
+*************************************************/
+.btn_01 {
+  position: relative;
+  width: 220px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  color: #285aa8;
+  font-size: 18px;
+  letter-spacing: 3.06px;
+  @include mq() {
+    font-size: 16px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files/btn_vector.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+    width: 5px;
+    height: 7px;
+  }
+  &:hover {
+    opacity: 0.7;
+    transform: translateY(3px);
+    transition: 0.1s;
+  }
+}
+
+.btn_02 {
+  position: relative;
+  width: 306px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #285aa8;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 3.06px;
+  @include mq() {
+    font-size: 16px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files/btn_02_vector.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+    width: 5px;
+    height: 7px;
+  }
+  &:hover {
+    opacity: 0.7;
+    transform: translateY(3px);
+    transition: 0.1s;
+  }
+}
+
+/*************************************************
+セクションタイトル
+*************************************************/
+.section_title {
+  margin-bottom: 50px;
+  @include mq() {
+    margin-bottom: 30px;
+  }
+  img {
+    display: block;
+    width: 45px;
+    height: 50px;
+    margin: 0 auto 5px;
+    @include mq() {
+      width: 34px;
+      height: 38px;
+    }
+  }
+  h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 4.42px;
+    @include mq() {
+      font-size: 20px;
+    }
+  }
+  h1 {
+    font-size: 26px;
+    text-align: center;
+    color: #285aa8;
+    letter-spacing: 4.42px;
+    font-weight: 700;
+  }
+  span {
+    font-family: Futura;
+    font-size: 13px;
+    color: #2ca2dd;
+    font-weight: 700;
+    letter-spacing: 2.21px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .about_span {
+    color: #fff;
+    opacity: 0.5;
+  }
+}
+
+/*************************************************
+アニメーション
+*************************************************/
+
+// 下からふわっ
+.fadeUp {
+  transform: translateY(0);
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  @include mq() {
+    animation-duration: 0.3s;
+  }
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-time02 {
+  animation-delay: 0.2s;
+  @include mq() {
+    animation-delay: 0.1s;
+  }
+}
+
+.delay-time04 {
+  animation-delay: 0.4s;
+  @include mq() {
+    animation-delay: 0.2s;
+  }
+}
+
+.delay-time06 {
+  animation-delay: 0.6s;
+  @include mq() {
+    animation-delay: 0.3s;
+  }
+}
+
+.delay-time08 {
+  animation-delay: 0.8s;
+  @include mq() {
+    animation-delay: 0.4s;
+  }
+}
+
+.delay-time1 {
+  animation-delay: 1s;
+  @include mq() {
+    animation-delay: 0.5s;
+  }
+}
+
+// ワイプのアニメーション
+.target {
+  transition: 0.5s clip-path; /*0.5秒でクリップマスクを動かす*/
+}
+
+.animeLeft {
+  clip-path: inset(0 100% 0 0); /*左から右へ動くクリップマスク*/
+}
+.animeRight {
+  clip-path: inset(0 0 0 100%); /*右から左へ動くクリップマスク*/
+}
+/*要素が見えたときの見え方*/
+.show {
+  clip-path: inset(0 0 0 0); /*クリップマスクを広げる*/
+}

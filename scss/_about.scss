@@ -1,0 +1,1029 @@
+@use "variable" as v;
+
+/*************************************************
+下層ファーストビュー
+*************************************************/
+#fv_under {
+    overflow: hidden;
+    position: relative;
+    padding-top: 135px;
+    @include mq() {
+        padding-top: 100px;
+    }
+    .fv_deco_01 {
+        position: absolute;
+        mix-blend-mode: overlay !important;
+        display: block;
+        width: v.pxtovw(221);
+        height: v.pxtovw(391);
+        top: v.pxtovw(-22);
+        right: v.pxtovw(18);
+        transform: rotate(16deg);
+        @include mq() {
+            width: v.pxtovw_sp(149);
+            height: v.pxtovw_sp(265);
+            top: v.pxtovw_sp(-40);
+            right: v.pxtovw_sp(-27);
+            transform: rotate(-16deg);
+        }
+    }
+    .fv_deco_02 {
+        mix-blend-mode: overlay !important;
+        position: absolute;
+        left: v.pxtovw(-60);
+        top: v.pxtovw(107);
+        width: v.pxtovw(284);
+        height: v.pxtovw(400);
+        transform: rotate(135deg);
+        @include mq() {
+            width: v.pxtovw_sp(256);
+            height: v.pxtovw_sp(362);
+            left: v.pxtovw_sp(-85);
+            top: v.pxtovw_sp(43);
+        }
+    }
+    .under_nami {
+        display: block;
+        width: 100%;
+        mix-blend-mode: multiply !important;
+    }
+    .news_title {
+        max-width: 1040px;
+        width: 100%;
+        margin: 35px auto 60px;
+        @include mq() {
+            padding: 0 20px;
+        }
+        .news_tag {
+            display: inline-block;
+            border-radius: 50px;
+            background: #2ca2dd;
+            padding: 5px 10px;
+            color: #fff;
+            margin-right: 20px;
+            font-size: 12px;
+        }
+        .news_date {
+            color: #1f1f1f;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+        }
+        h1 {
+            color: #285aa8;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 5.44px;
+            margin-top: 15px;
+            @include mq() {
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+/*************************************************
+ページ内リンク
+*************************************************/
+#page_link {
+    position: relative;
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//page_link_bg.png);
+        background-size: cover;
+        mix-blend-mode: multiply;
+        // z-index: -1;
+        width: 100%;
+        height: 230px;
+        @include mq() {
+            height: 100%;
+        }
+    }
+    .section_inner {
+        padding: 100px 0 72px;
+        max-width: 860px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include mq() {
+            display: block;
+            padding: 60px 20px 40px;
+        }
+        a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 380px;
+            height: 60px;
+            color: #285aa8;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: 3.06px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25) inset;
+            &::after {
+                content: "";
+                background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//link_btn.svg);
+                background-size: contain;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                right: 24px;
+            }
+            &:hover {
+                opacity: 0.7;
+                transform: translateY(3px);
+                transition: 0.1s;
+            }
+            @include mq() {
+                margin-bottom: 25px;
+                width: 100%;
+                height: 55px;
+            }
+        }
+    }
+    .section_inner_00 {
+        @include base_width;
+        padding: 100px 0;
+        margin-bottom: 100px;
+        @include mq() {
+            padding: 60px 20px 40px;
+        }
+    }
+}
+
+// 共通
+.section_title3 {
+    padding: 125px 0 178px;
+    @include mq() {
+        padding: 60px 20px;
+    }
+    h2 {
+        width: 346px;
+        margin: 0 auto;
+        position: relative;
+        color: #285aa8;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 3.4px;
+        padding: 10px 0;
+        @include mq() {
+            width: 100%;
+        }
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//section_title3.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: v.pxtovw(10);
+            @include mq() {
+                height: v.pxtovw_sp(10);
+            }
+        }
+        &::before {
+            top: -10px;
+            @include mq() {
+                top: -15px;
+            }
+        }
+        &::after {
+            bottom: -10px;
+            @include mq() {
+                bottom: -15px;
+            }
+        }
+    }
+}
+
+/*************************************************
+アバウト
+*************************************************/
+#about {
+    position: relative;
+    background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_explain_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    padding-top: 100px;
+    height: v.pxtovw(767);
+    @include mq() {
+        background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_explain_bg_sp.png);
+        height: v.pxtovw_sp(667);
+    }
+    .about_slide_01 {
+        position: absolute;
+        left: v.pxtovw(-150);
+        width: v.pxtovw(546);
+        height: v.pxtovw(541);
+        @include mq() {
+            width: v.pxtovw_sp(282);
+            height: v.pxtovw_sp(279);
+            left: v.pxtovw_sp(-130);
+            top: v.pxtovw_sp(20);
+        }
+    }
+
+    .about_explain {
+        position: absolute;
+        width: v.pxtovw(580);
+        top: v.pxtovw(254);
+        left: v.pxtovw(616);
+        @include mq() {
+            width: fit-content;
+            top: v.pxtovw_sp(104);
+            left: v.pxtovw_sp(216);
+            .about_explain_text {
+                display: none;
+            }
+        }
+        h2 {
+            color: #285aa8;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 5.1px;
+            margin-bottom: 30px;
+            @include mq() {
+                line-height: 1.6;
+                font-size: 24px;
+            }
+        }
+        p {
+            color: #1f1f1f;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1.6px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+    }
+    .about_explain_text_sp {
+        display: none;
+        @include mq() {
+            padding: 0 20px;
+            display: block;
+            position: absolute;
+            top: v.pxtovw_sp(323);
+            p {
+                color: #1f1f1f;
+                font-size: 15px;
+                font-weight: 500;
+                letter-spacing: 1.6px;
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+        }
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_nami_01.png);
+        background-size: cover;
+        width: 100%;
+        height: 33px;
+        left: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_ahirai.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: v.pxtovw(629);
+        height: v.pxtovw(599);
+        left: v.pxtovw(-150);
+        top: v.pxtovw(71);
+        mix-blend-mode: color-burn;
+        @include mq() {
+            width: v.pxtovw_sp(324);
+            height: v.pxtovw_sp(309);
+            left: v.pxtovw_sp(-150);
+            top: v.pxtovw_sp(10);
+        }
+    }
+}
+
+/*************************************************
+つよみ
+*************************************************/
+#about_01 {
+    .about_01_bg {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+        padding: 50px 0 72px;
+        margin-bottom: v.pxtovw(174);
+        height: v.pxtovw(493);
+        @include mq() {
+            height: v.pxtovw_sp(715);
+            padding: 50px 20px 30px;
+            margin-bottom: v.pxtovw_sp(145);
+        }
+        .about_01_flex {
+            @include base_width;
+            display: flex;
+            @include mq() {
+                display: block;
+            }
+            .about_01_flex_left {
+                width: 620px;
+                @include mq() {
+                    width: 100%;
+                }
+                .about_title_01 {
+                    margin-bottom: 70px;
+                    @include mq() {
+                        margin-bottom: 0px;
+                    }
+                    p {
+                        color: #1f1f1f;
+                        font-size: 18px;
+                        font-weight: 500;
+                        letter-spacing: 1.8px;
+                        line-height: 1.5;
+                    }
+                    svg {
+                        margin-bottom: 25px;
+                        @include mq() {
+                            width: 100%;
+                            margin-bottom: 0px;
+                        }
+                    }
+                    h3 {
+                        position: relative;
+                        color: #285aa8;
+                        font-size: 30px;
+                        font-weight: 700;
+                        letter-spacing: 5.1px;
+                        margin-top: 11px;
+                        padding-bottom: 17px;
+                        @include mq() {
+                            font-size: 24px;
+                        }
+                    }
+                }
+
+                .about_01_sp_img {
+                    display: none;
+                    @include mq() {
+                        display: block;
+                        position: relative;
+                        z-index: 1;
+                        img {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .about_point {
+                    position: relative;
+                    width: 567px;
+                    border-radius: 10px;
+                    background: #fff;
+                    padding: 34px 20px;
+                    margin-left: 15px;
+                    @include mq() {
+                        width: 100%;
+                        margin-left: 0;
+                        transform: translateY(-35px);
+                        z-index: 0;
+                        padding: 35px 15px 10px;
+                    }
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//point.svg);
+                        background-size: contain;
+                        width: 108px;
+                        height: 96px;
+                        left: -15px;
+                        top: -60px;
+                    }
+                    h4 {
+                        color: #1f1f1f;
+                        font-size: 18px;
+                        font-weight: 500;
+                        letter-spacing: 1.8px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px #285aa8 solid;
+                        line-height: 1.5;
+                        @include mq() {
+                            padding-bottom: 15px;
+                        }
+                    }
+                    .about_point_text {
+                        padding-top: 20px;
+                        @include mq() {
+                            padding-top: 15px;
+                        }
+                        p {
+                            color: #1f1f1f;
+                            font-size: 16px;
+                            font-weight: 400;
+                            letter-spacing: 1.6px;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+            }
+
+            .about_01_flex_right {
+                width: 620px;
+                position: relative;
+                @include mq() {
+                    display: none;
+                }
+                .about_01_flex_right_01 {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: v.pxtovw(-103);
+                    width: v.pxtovw(407);
+                    height: v.pxtovw(440);
+                    transform: rotate(-4deg);
+                }
+                .about_01_flex_right_02 {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: v.pxtovw(154);
+                    width: v.pxtovw(331);
+                    height: v.pxtovw(360);
+                    transform: rotate(4deg);
+                }
+            }
+        }
+    }
+    .about_01_bg2 {
+        padding: v.pxtovw(111) 0 v.pxtovw(50);
+        height: 100%;
+        @include mq() {
+            padding: v.pxtovw_sp(45) 20px v.pxtovw_sp(65);
+        }
+        // height: v.pxtovw(3027);
+        .about_01_flex {
+            // margin-bottom: v.pxtovw(120);
+        }
+        .about_point {
+            margin-top: v.pxtovw(83);
+            margin-bottom: v.pxtovw(91);
+            &:last-child {
+                margin-bottom: 0;
+                @include mq() {
+                    transform: translateY(0) !important;
+                    margin-top: 50px;
+                }
+            }
+        }
+        .about_01_flex_right {
+            transform: translateY(v.pxtovw(-90));
+            height: v.pxtovw(935);
+            @include mq() {
+                display: none;
+            }
+            .about_01_flex_right_03 {
+                position: absolute;
+                left: 0;
+                top: v.pxtovw(-40);
+                width: v.pxtovw(407);
+                height: v.pxtovw(440);
+                transform: rotate(-4deg);
+            }
+            .about_01_flex_right_04 {
+                position: absolute;
+                top: v.pxtovw(230);
+                right: 0;
+                z-index: 1;
+                width: v.pxtovw(331);
+                height: v.pxtovw(360);
+                transform: rotate(4deg);
+            }
+            .about_01_flex_right_05 {
+                position: absolute;
+                top: v.pxtovw(515);
+                width: v.pxtovw(450);
+                height: v.pxtovw(380);
+                transform: rotate(-4deg) translateX(-50%);
+                left: 50%;
+            }
+        }
+    }
+
+    // 製造工場
+    .about_01_box {
+        @include base_width;
+        @include mq() {
+            margin-top: 75px;
+            position: relative;
+        }
+        .about_title_02 {
+            margin-bottom: 60px;
+            @include mq() {
+                margin-bottom: 30px;
+            }
+            h5 {
+                text-align: center;
+                color: #285aa8;
+                font-size: 18px;
+                font-weight: 700;
+                letter-spacing: 1.8px;
+                padding: 10px 0;
+                border-top: 1px solid #285aa8;
+                border-bottom: 1px solid #285aa8;
+            }
+        }
+
+        .about_box_wrap {
+            max-width: 1098px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 100px;
+            ::-webkit-scrollbar {
+                background: #fff;
+            }
+            @include mq() {
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                margin-bottom: 70px;
+            }
+            .about_box_inner {
+                position: relative;
+                margin-bottom: 75px;
+                @include mq() {
+                    max-width: 350px;
+                    width: 100%;
+                    margin-top: 30px;
+                    margin-right: v.pxtovw_sp(50);
+                    margin-bottom: 50px;
+                }
+                &::after {
+                    top: 70px;
+                    position: absolute;
+                    right: -50px;
+                    content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_arrow.svg);
+                    @include mq() {
+                        right: v.pxtovw_sp(-30);
+                    }
+                }
+                &:nth-of-type(3)::after,
+                &:last-of-type::after {
+                    content: none;
+                }
+                &:nth-of-type(3)::after {
+                    @include mq() {
+                        content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_arrow.svg);
+                    }
+                }
+                img {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                p {
+                    color: #1f1f1f;
+                    font-size: 18px;
+                    font-weight: 700;
+                    letter-spacing: 1.8px;
+                }
+
+                // 数字
+                &::before {
+                    position: absolute;
+                    content: "";
+                    color: #fff;
+                    font-family: Futura;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    width: 55px;
+                    height: 55px;
+                    background: #285aa8;
+                    border-radius: 50%;
+                    padding: 14px;
+                    left: 0;
+                    top: -28px;
+                }
+                &:nth-child(1)::before {
+                    content: "01";
+                }
+                &:nth-child(2)::before {
+                    content: "02";
+                }
+                &:nth-child(3)::before {
+                    content: "03";
+                }
+                &:nth-child(4)::before {
+                    content: "04";
+                }
+                &:nth-child(5)::before {
+                    content: "05";
+                }
+                &:nth-child(6)::before {
+                    content: "06";
+                }
+            }
+        }
+        /* スクロールバーのスタイルを調整 */
+        .about_box_wrap {
+            scrollbar-width: thin; /* Firefox用 */
+            scrollbar-color: #3f3b3a #fff; /* Firefox用 */
+        }
+
+        .about_box_wrap::-webkit-scrollbar {
+            height: 12px; /* スクロールバーの高さ */
+        }
+
+        .about_box_wrap::-webkit-scrollbar-track {
+            background: #fff; /* 背景色 */
+        }
+
+        .about_box_wrap::-webkit-scrollbar-thumb {
+            background-color: #3f3b3a; /* スクロールバーの色 */
+            border-radius: 10px; /* 角を丸める */
+            border: 3px solid #fff; /* 外側のマージン（背景色と同じ） */
+        }
+        // .progress-bar {
+        //     display: none;
+        //     @include mq() {
+        //         display: block;
+        //         position: absolute;
+        //         bottom: 0;
+        //         left: 0;
+        //         width: 100%;
+        //         height: 4px;
+        //         background-color: #fff;
+        //     }
+        //     @include mq() {
+        //         .progress {
+        //             width: 0;
+        //             height: 100%;
+        //             background-color: #3f3b3a;
+        //             transition: width 0.3s ease;
+        //         }
+        //     }
+        // }
+        .about_img {
+            max-width: 1037px;
+            width: 100%;
+            margin: 0 auto;
+            img {
+                // display: block;
+                width: 100%;
+            }
+        }
+        ul {
+            max-width: 1100px;
+            width: 100%;
+            margin: 30px auto;
+            li {
+                color: #1f1f1f;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: 1.6px;
+                padding-bottom: 13px;
+                border-bottom: 1px dashed #2ca2dd;
+                margin-bottom: 13px;
+                @include mq() {
+                    border: none;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .shinku {
+        margin-bottom: 100px;
+    }
+}
+
+/*************************************************
+業務内容
+*************************************************/
+#about_02 {
+    .section_inner {
+        @include base_width;
+        @include mq() {
+            padding: 0 20px;
+        }
+        .section_title3 {
+            margin-bottom: 65px;
+            padding: 0;
+        }
+        .about_02_flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 140px;
+            @include mq() {
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                flex-direction: row;
+                margin-bottom: 80px;
+            }
+            .about_02_flex_inner {
+                @include mq() {
+                    padding: 0 10px;
+                    flex: 0 0 auto;
+                    width: 100%;
+                    padding-top: 15px;
+                    // margin-bottom: 30px;
+                }
+                &:first-child h3::before {
+                    content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_02_flex_01.svg);
+                }
+                &:nth-child(2) h3::before {
+                    content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_02_flex_02.svg);
+                }
+                &:nth-child(3) h3::before {
+                    content: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//about_02_flex_03.svg);
+                }
+                h3 {
+                    color: #285aa8;
+                    font-size: 20px;
+                    font-weight: 700;
+                    letter-spacing: 3.4px;
+                    text-align: center;
+                    margin-bottom: 25px;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 110px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: -20px;
+                    }
+                    @include mq() {
+                        font-size: 18px;
+                    }
+                }
+                img {
+                    display: block;
+                    margin-bottom: 20px;
+                    @include mq() {
+                        width: 100%;
+                    }
+                }
+                .about_02_flex_text {
+                    display: flex;
+                    max-width: 400px;
+                    width: 100%;
+                    padding: 22px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                    border-radius: 10px;
+                    background: #fff;
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+                    @include mq() {
+                        box-shadow: none;
+                    }
+                    h4 {
+                        display: block;
+                        width: 100%;
+                        color: #1f1f1f;
+                        font-size: 18px;
+                        font-weight: 500;
+                        letter-spacing: 1.8px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #285aa8;
+                        margin-bottom: 20px;
+                        @include mq() {
+                            padding-bottom: 15px;
+                            margin-bottom: 0;
+                        }
+                    }
+                    p {
+                        color: #1f1f1f;
+                        font-size: 16px;
+                        font-weight: 400;
+                        letter-spacing: 1.6px;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+        /* スクロールバーのスタイルを調整 */
+        .about_02_flex {
+            scrollbar-width: thin; /* Firefox用 */
+            scrollbar-color: #3f3b3a #fff; /* Firefox用 */
+        }
+
+        .about_02_flex::-webkit-scrollbar {
+            height: 12px; /* スクロールバーの高さ */
+        }
+
+        .about_02_flex::-webkit-scrollbar-track {
+            background: #fff; /* 背景色 */
+        }
+
+        .about_02_flex::-webkit-scrollbar-thumb {
+            background-color: #3f3b3a; /* スクロールバーの色 */
+            border-radius: 10px; /* 角を丸める */
+            border: 3px solid #fff; /* 外側のマージン（背景色と同じ） */
+        }
+        // 工場
+        .kojo_wrap {
+            position: relative;
+            margin-bottom: 90px;
+            &::before {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: auto;
+                height: 753px;
+                // height: v.pxtovw(753);
+                border-radius: 10px;
+                background: #2ca2dd;
+                mix-blend-mode: multiply;
+                left: 0;
+                top: 0;
+                z-index: -1;
+            }
+
+            .kojo_img {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: -100px;
+                @include mq() {
+                    top: -50px;
+                }
+            }
+
+            .kojo_flex {
+                padding: 150px 0 75px;
+                max-width: 1132px;
+                width: 100%;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                @include mq() {
+                    padding: 90px 0 25px;
+                }
+                .kojo_inner {
+                    margin-bottom: 60px;
+                    @include mq() {
+                        flex-basis: 49.5%;
+                        // padding: 150px 15px 75px;
+                        padding: 0 15px;
+                        margin-bottom: 30px;
+                    }
+                    img {
+                        display: block;
+                        margin-bottom: 10px;
+                        @include mq() {
+                            width: 100%;
+                        }
+                    }
+                    button {
+                        width: 220px;
+                        border-radius: 20px;
+                        background: #fff;
+                        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+                        color: #285aa8;
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: 500;
+                        letter-spacing: 2.72px;
+                        margin: 0 auto;
+                        display: block;
+                        padding: 4px 0;
+                        position: relative;
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files//zoom.svg);
+                            width: 24px;
+                            height: 24px;
+                            right: 8px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            @include mq() {
+                                width: 12px;
+                                height: 12px;
+                                background-size: contain;
+                            }
+                        }
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                        @include mq() {
+                            width: 100%;
+                            font-size: 12px;
+                        }
+                    }
+                    &:last-child button {
+                        width: 270px;
+                        @include mq() {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        // モーダル
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: 200px auto 30px;
+            display: block;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .close {
+            position: absolute;
+            top: 150px;
+            left: v.pxtovw(1100);
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+    }
+}
+
+#about_roop {
+    padding-bottom: 100px;
+    overflow-x: hidden;
+    .about_roop {
+        img {
+            display: block;
+            width: fit-content;
+            padding-top: 70px;
+            margin: 0 35px 0 0;
+            @include mq() {
+                margin: 0 15px 0 0;
+            }
+        }
+        .even-slide {
+            transform: translateY(-70px);
+        }
+    }
+    .slick-list {
+        overflow-y: visible;
+        // overflow-x: hidden!important;
+    }
+}
+
+.about_contact {
+    display: none;
+    @include mq() {
+        display: block;
+    }
+}

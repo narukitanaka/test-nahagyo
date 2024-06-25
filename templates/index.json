@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "top01_g4gx97": {
+      "type": "top01",
+      "settings": {
+      }
+    },
+    "top02_EnpygY": {
+      "type": "top02",
+      "settings": {
+      }
+    },
+    "follow_xHHHPA": {
+      "type": "follow",
+      "settings": {
+      }
+    },
+    "top03_N4arJp": {
+      "type": "top03",
+      "settings": {
+      }
+    },
+    "top04_rPHjJc": {
+      "type": "top04",
+      "settings": {
+      }
+    },
+    "top05_7Hk9qU": {
+      "type": "top05",
+      "settings": {
+      }
+    },
+    "top06_bXgU9h": {
+      "type": "top06",
+      "settings": {
+      }
+    },
+    "top07_3kNrdP": {
+      "type": "top07",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "top01_g4gx97",
+    "top02_EnpygY",
+    "follow_xHHHPA",
+    "top03_N4arJp",
+    "top04_rPHjJc",
+    "top05_7Hk9qU",
+    "top06_bXgU9h",
+    "top07_3kNrdP"
+  ]
+}

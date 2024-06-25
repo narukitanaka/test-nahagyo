@@ -1,0 +1,482 @@
+@use "variable" as v;
+
+/*************************************************
+お問い合わせ
+*************************************************/
+#contact {
+    padding-bottom: 50px;
+    @include mq(){
+        padding: 80px 20px
+    }
+    .section_inner {
+        @include base_width;
+        .contact_text_01 {
+            margin: 100px 0;
+            @include mq(){
+                margin-top: 0;
+            }
+            p {
+                color: #1f1f1f;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 1.6px;
+                margin-bottom: 15px;
+                line-height: 1.6;
+                a {
+                    color: #285aa8;
+                    display: inline-block;
+                    padding-bottom: 3px;
+                    border-bottom: 1px solid #285aa8;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+        .contact_tel {
+            margin-bottom: 100px;
+            .section_title3 {
+                padding: 0;
+                margin-bottom: 55px;
+            }
+            a {
+                width: fit-content;
+                margin: 0 auto 15px;
+                display: flex;
+                color: #285aa8;
+                text-align: center;
+                font-family: Futura;
+                font-size: 32px;
+                font-weight: 700;
+                letter-spacing: 5.44px;
+            }
+            p {
+                text-align: center;
+                color: #285aa8;
+                text-align: center;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: 1.6px;
+                line-height: 1.6;
+            }
+        }
+
+        .contact_form {
+            margin-bottom: 100px;
+            .section_title3 {
+                padding: 0;
+                margin-bottom: 55px;
+            }
+            .form_wrapper {
+                background-color: #fff;
+                padding: 50px 0;
+                @include mq() {
+                    padding: 50px 25px;
+                }
+                p {
+                    font-size: 16px;
+                    text-align: center;
+                    letter-spacing: 1.6px;
+                    a {
+                        color: #285aa8;
+                        display: inline-block;
+                        padding-bottom: 3px;
+                        border-bottom: 1px solid #285aa8;
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+            table {
+                max-width: 1040px;
+                width: 100%;
+                margin: 0 auto;
+                display: block;
+
+                padding-bottom: 50px;
+                tr,
+                th,
+                td,
+                tbody {
+                    display: block;
+                }
+                tr {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 15px 0;
+                    @include mq() {
+                        display: block;
+                    }
+                }
+                th {
+                    color: #285aa8;
+                    flex-basis: 15%;
+                    font-weight: normal;
+                    letter-spacing: 0.2rem;
+                    @include mq() {
+                        margin-bottom: 10px;
+                    }
+                }
+                td {
+                    flex-basis: 80%;
+                    background-color: #f5f5f5;
+                    padding: 10px;
+                }
+                textarea {
+                    width: 100%;
+                    height: 300px;
+                }
+            }
+            .btn_02 {
+                margin: 50px auto 0;
+            }
+        }
+    }
+}
+
+/*************************************************
+会社概要・特定商法
+*************************************************/
+#company {
+    padding: 100px 0;
+    @include mq(){
+        padding: 80px 20px;
+    }
+    .section_inner {
+        max-width: 1040px;
+        width: 100%;
+        margin: 0 auto;
+        table,
+        tbody {
+            display: block;
+            margin-bottom: 50px;
+            tr {
+                display: flex;
+                justify-content: space-between;
+                color: #1f1f1f;
+                font-family: "Zen Kaku Gothic New";
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 1.6px;
+                line-height: 1.6;
+                width: 100%;
+                &:first-child th {
+                    border-top: 1px solid #2ca2dd;
+                }
+                &:first-child td {
+                    border-top: 1px solid #285aa8;
+                }
+                th {
+                    text-align: center;
+                    width: 200px;
+                    display: block;
+                    text-align: center;
+                    border-bottom: 1px solid #2ca2dd;
+                    padding: 30px 0;
+                    @include mq(){
+                        width: 20%;
+                    }
+                }
+                td {
+                    display: block;
+                    width: 800px;
+                    padding: 30px;
+                    border-bottom: 1px solid #285aa8;
+                    @include mq(){
+                        width: 78%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// .terms{
+//     @include mq(){
+//         .section_inner{
+//             table{
+//                 tr{
+//                     display: block!important;
+//                     th{
+//                         width: 100%!important;
+//                         text-align: left!important;
+//                     }
+//                     td{
+//                         width: 100%!important;
+//                         text-align: left!important;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+/*************************************************
+プラポリ
+*************************************************/
+#policy {
+    padding: 100px 0;
+    @include mq(){
+        padding: 80px 20px;
+    }
+    .section_inner {
+        max-width: 1040px;
+        width: 100%;
+        margin: 0 auto;
+        .terms {
+            .box {
+                margin-bottom: 45px;
+            }
+            p {
+                font-size: 16px;
+                margin-bottom: 15px;
+                line-height: 1.5em;
+            }
+            h4 {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                padding-left: 15px;
+                border-left: 4px solid #285aa8;
+                color: #285aa8;
+                margin-bottom: 20px;
+                line-height: 1.5em;
+            }
+            ol {
+                li {
+                    list-style: decimal;
+                    margin-left: 1em;
+                    margin-bottom: 10px;
+                    line-height: 1.5em;
+                    ol {
+                        margin-top: 10px;
+                        li {
+                            margin-left: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*************************************************
+よくある質問
+*************************************************/
+#faq_01,
+#faq_02,
+#faq_03 {
+    padding-bottom: 100px;
+    @include mq(){
+        padding: 0 20px 100px;
+    }
+    .section_inner {
+        max-width: 1040px;
+        width: 100%;
+        margin: 0 auto;
+        .section_title3 {
+            padding: 0;
+            margin-bottom: 50px;
+        }
+        .faq_wrapper {
+            background-color: #fff;
+            padding: 50px;
+            @include mq(){
+                padding: 20px 10px;
+            }
+            .faq_inner {
+                margin-bottom: 60px;
+                @include mq(){
+                    margin-bottom: 45px;
+                }
+                .faq_q {
+                    position: relative;
+                    color: #285aa8;
+                    font-size: 16px;
+                    font-weight: 700;
+                    letter-spacing: 1.6px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #285aa8;
+                    line-height: 1.6;
+                    padding-left: 80px;
+                    @include mq(){
+                        padding-left: 40px;
+                    }
+                    &::before {
+                        position: absolute;
+                        left: 30px;
+                        content: "Q";
+                        display: inline-block;
+                        padding-right: 30px;
+                        color: #2ca2dd;
+                        font-family: Futura;
+                        font-size: 20px;
+                        font-weight: 700;
+                        letter-spacing: 2px;
+                        @include mq(){
+                            left: 10px;
+                        }
+                    }
+                }
+                .faq_a {
+                    position: relative;
+                    font-weight: 500;
+                    font-size: 16px;
+                    letter-spacing: 1.6px;
+                    padding-top: 15px;
+                    line-height: 1.6;
+                    padding-left: 80px;
+                    @include mq(){
+                        padding-left: 40px;
+                    }
+                    &::before {
+                        position: absolute;
+                        left: 30px;
+                        content: "A";
+                        display: inline-block;
+                        padding-right: 30px;
+                        color: #2ca2dd;
+                        font-family: Futura;
+                        font-size: 20px;
+                        font-weight: 700;
+                        letter-spacing: 2px;
+                        @include mq(){
+                            left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*************************************************
+新着情報
+*************************************************/
+
+#news {
+    padding: 100px 0;
+    @include mq(){
+        padding: 80px 20px 120px;
+    }
+    .section_inner {
+        max-width: 1040px;
+        width: 100%;
+        margin: 0 auto;
+        .news_list {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+            li {
+                max-width: 310px;
+                width: 100%;
+                background: #fff;
+                box-shadow: 0px 0px 10px 0px rgba(31, 31, 31, 0.15);
+                padding: 15px;
+                margin-bottom: 55px;
+                @include mq(){
+                    max-width: 100%;
+                    margin-bottom: 30px;
+                }
+                .news_tag {
+                    display: inline-block;
+                    border-radius: 50px;
+                    background: #2ca2dd;
+                    padding: 5px 10px;
+                    color: #fff;
+                    margin-right: 20px;
+                    font-size: 12px;
+                }
+                .news_date {
+                    color: #285aa8;
+                    font-size: 14px;
+                    font-weight: 700;
+                    letter-spacing: 1.4px;
+                }
+                h2 {
+                    color: #1f1f1f;
+                    font-size: 14px;
+                    font-weight: 700;
+                    margin: 15px 0;
+                }
+                p {
+                    color: #737373;
+                    font-size: 11px;
+                    font-weight: 500;
+                    margin-bottom: 30px;
+                    line-height: 1.5;
+                }
+                .btn_02 {
+                    width: 160px;
+                    height: 30px;
+                    margin: 0 auto;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .pagination {
+            ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 300px;
+                margin: 0 auto;
+                li {
+                    .previous_page,
+                    .next_page {
+                        background: none;
+                        width: 30px;
+                        height: 30px;
+                        box-shadow: none;
+                    }
+                    a {
+                        color: #285aa8;
+                        font-family: Futura;
+                        font-size: 14px;
+                        font-weight: 500;
+                        letter-spacing: 0.7px;
+                        width: 30px;
+                        height: 30px;
+                        background: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+                    }
+                    .page_active {
+                        color: #f5f5f5;
+                        background: #285aa8;
+                    }
+                }
+            }
+        }
+
+        // 詳細
+        .news_inner {
+            p {
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 155.9%; /* 21.826px */
+                letter-spacing: 2.38px;
+                margin-bottom: 15px;
+            }
+            img{
+                display: block;
+                width: fit-content;
+                margin: 100px auto;
+                @include mq(){
+                    width: 100%;
+                    margin: 50px auto;
+                }
+            }
+        }
+    }
+}
