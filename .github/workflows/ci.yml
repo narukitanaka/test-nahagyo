@@ -1,33 +1,29 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
+    - uses: actions/checkout@v3
+    - name: Use Node.js 20.x
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: 20
 
     - name: Install dependencies
       run: npm install
 
-    - name: Run build
-      run: npm run build
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-
-    - name: Install Theme Check
-      run: gem install theme-check
-
     - name: Run Theme Check
       run: theme-check
+
+    - name: Run Lighthouse
+      run: lhci autorun
