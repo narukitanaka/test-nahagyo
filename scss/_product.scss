@@ -363,8 +363,9 @@
     }
     .item_slide {
         li {
-            width: 777px !important;
-            margin: 0 20px;
+            max-width: 777px;
+            width: 100%;
+            margin: 0 auto;
             @include mq(){
                 max-width: 400px;
                 width: 100%!important;
