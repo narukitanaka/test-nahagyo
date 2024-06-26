@@ -279,7 +279,7 @@
     {% endstyle %}
     
 
-    {% comment %} {{ 'base.css' | asset_url | stylesheet_tag }} {% endcomment %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
 
     {{ 'reset.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}

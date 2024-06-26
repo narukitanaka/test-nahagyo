@@ -1,0 +1,30 @@
+<!------------------------ 下層ファーストビュー ---------------------->
+<section id="fv_under">
+    <img class="fv_deco_01" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_01.png" alt="">
+    <div class="news_title">
+        {% if article %}
+            {% assign tags = article.tags %}
+            <span class="news_tag">{{ tags | join: ', ' }}</span>
+            <span class="news_date">{{ article.published_at | date: '%Y.%m.%d' }}</span>
+            <h1>{{ article.title }}</h1>
+        {% endif %}
+    </div>
+    <img class="fv_deco_02" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_02.png" alt="">
+    <img class="under_nami" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_nami.png" alt="">
+</section>
+
+<!------------------------ 記事詳細 ---------------------->
+<section id="news">
+    <div class="section_inner">
+        <div class="news_inner">
+            {% if article %}
+                {{ article.content }}
+                {% if article.image %}
+                    <img src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.image.alt }}">
+                {% endif %}
+                <!-- More article content can be added here as needed -->
+            {% endif %}
+        </div>
+        <a style="margin:50px auto;" href="/blogs/news" class="btn_02">新着情報一覧へ</a>
+    </div>
+</section>

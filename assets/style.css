@@ -391,6 +391,61 @@ input[type=button]::focus {
 }
 
 /*************************************************
+デフォルト調整
+*************************************************/
+.customer {
+  padding-top: 140px !important;
+}
+
+.shopify-challenge__container {
+  padding-top: 140px;
+}
+@media screen and (max-width: 599px) {
+  .shopify-challenge__container {
+    padding: 140px 20px 0;
+  }
+}
+.shopify-challenge__container p {
+  margin-bottom: 40px;
+}
+.shopify-challenge__container .shopify-challenge__button {
+  min-width: calc(10rem + var(--buttons-border-width) * 2);
+  min-height: calc(3rem + var(--buttons-border-width) * 2);
+  text-align: center;
+  background-color: #1a1311;
+  color: #fff;
+  margin: 40px auto;
+}
+.shopify-challenge__container .shopify-challenge__button:hover {
+  opacity: 0.7;
+}
+
+.customer h2.form__message {
+  font-size: 14px !important;
+}
+
+:is(.account, .order) p {
+  font-size: 14px !important;
+}
+
+.form__message {
+  margin-bottom: 20px;
+}
+.form__message h2 {
+  text-align: center;
+}
+.form__message svg {
+  max-width: 100px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.form-status-list {
+  text-align: center;
+}
+
+/*************************************************
 header
 *************************************************/
 header {
@@ -432,9 +487,6 @@ header .header_pc .header_pc_nav li:hover {
   opacity: 0.7;
 }
 header .header_pc .header_pc_nav .search {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 206px;
   height: 40px;
   border-radius: 62px;
@@ -443,6 +495,16 @@ header .header_pc .header_pc_nav .search {
   font-size: 15px;
   padding-left: 1.1111111111vw;
   padding-right: 0.8333333333vw;
+}
+header .header_pc .header_pc_nav .search form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  justify-content: space-between;
+}
+header .header_pc .header_pc_nav .search form input[type=text] {
+  width: 140px;
 }
 header .header_pc .header_pc_nav .search img {
   width: 27px;

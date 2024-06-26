@@ -3,26 +3,34 @@
 <header>
   <!-- pc -->
   <div class="header_pc">
-      <a class="logo" href="index.html"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/logo.svg" alt=""></a>
+      <a class="logo" href="/"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/logo.svg" alt=""></a>
       <ul class="header_pc_nav">
-          <li><a href="about.html">那覇魚類について</a></li>
-          <li><a href="list.html">オンラインショップ</a></li>
+          <li><a href="/pages/about">那覇魚類について</a></li>
+          <li><a href="/collections/all">オンラインショップ</a></li>
           <li><a href="products.html">取扱商品</a></li>
-          <li><a href="news.html">新着情報</a></li>
-          <li><a href="faq.html">よくあるご質問</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-          <li class="search">キーワードを入力<img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/search.svg" alt=""></li>
-          <li class="mypage"><a href=""><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/mypage.svg" alt=""></a></li>
-          <li class="cart"><a href=""><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/cart.svg" alt=""></a></li>
+          <li><a href="/blogs/news">新着情報</a></li>
+          <li><a href="/pages/faq">よくあるご質問</a></li>
+          <li><a href="/pages/contact">お問い合わせ</a></li>
+          <li class="search">
+            <form action="/search" method="get">
+              <input type="text" name="q" placeholder="キーワードを入力">
+              <button type="submit">
+                <img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/search.svg" alt="検索">
+              </button>
+            </form>
+          </li>
+          
+          <li class="mypage"><a href="/account"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/mypage.svg" alt=""></a></li>
+          <li class="cart"><a href="/cart"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/cart.svg" alt=""></a></li>
       </ul>
   </div>
   <!-- sp -->
   <div class="header_sp">
-      <a class="logo" href="index.html"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/logo.svg" alt=""></a>
+      <a class="logo" href="/"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/logo.svg" alt=""></a>
       <ul class="header_sp_nav">
-          <li><a href=""><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/search_sp.svg" alt=""></a></li>
-          <li class="mypage"><a href=""><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/mypage_sp.svg" alt=""></a></li>
-          <li class="cart"><a href=""><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/cart_sp.svg" alt=""></a></li>
+          <li><a href="/search"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/search_sp.svg" alt=""></a></li>
+          <li class="mypage"><a href="/account"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/mypage_sp.svg" alt=""></a></li>
+          <li class="cart"><a href="/cart"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/cart_sp.svg" alt=""></a></li>
           <li>
               <div class="openbtn" id="js-hamburgersp">
                   <span></span><span></span><span></span>
@@ -32,19 +40,19 @@
                   <!-- <div class="search"><a href="">キーワードを入力<img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/sarch.svg" alt=""></a></div> -->
                   <div class="menu_flex">
                       <ul>
-                          <li><a href="index.html">TOP</a></li>
-                          <li><a href="news.html">新着情報</a></li>
-                          <li><a href="about.html">那覇魚類について</a></li>
-                          <li><a href="faq.html">よくあるご質問</a></li>
-                          <li><a href="list.html">オンラインショップ</a></li>
+                          <li><a href="/">TOP</a></li>
+                          <li><a href="/blogs/news">新着情報</a></li>
+                          <li><a href="/pages/about">那覇魚類について</a></li>
+                          <li><a href="/pages/faq">よくあるご質問</a></li>
+                          <li><a href="/collections/all">オンラインショップ</a></li>
                           <li><a href="products.html">取扱商品</a></li>
                       </ul>
 
                       <ul>
-                          <li><a href="contact.html">お問い合わせ</a></li>
-                          <li><a href="company.html">会社概要</a></li>
-                          <li style="flex-basis: 100%;"><a href="terms.html">特定商取引法に基づく表記</a></li>
-                          <li><a href="privacy.html">プライバシーポリシー</a></li>
+                          <li><a href="/pages/contact">お問い合わせ</a></li>
+                          <li><a href="/pages/company">会社概要</a></li>
+                          <li style="flex-basis: 100%;"><a href="/pages/terms">特定商取引法に基づく表記</a></li>
+                          <li><a href="/pages/privacy">プライバシーポリシー</a></li>
                       </ul>
                   </div>
               </nav>

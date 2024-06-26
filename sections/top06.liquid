@@ -9,23 +9,16 @@
       </div>
 
       <div class="latest_news fadeUpTrigger delay-time04">
-        <a href="news_00.html">
-          <span>2024.06.02</span>
-          那覇魚類公式サイトをリニューアルしました
-        </a>
-
-        <a href="news_00.html">
-          <span>2024.06.02</span>
-          那覇魚類公式サイトをリニューアルしました
-        </a>
-
-        <a href="news_00.html">
-          <span>2024.06.02</span>
-          那覇魚類公式サイトをリニューアルしました
-        </a>
+        {% assign latest_articles = blogs['news'].articles | slice: 0, 3 %}
+        {% for article in latest_articles %}
+          <a href="{{ article.url }}">
+            <span>{{ article.published_at | date: '%Y.%m.%d' }}</span>
+            {{ article.title }}
+          </a>
+        {% endfor %}
       </div>
-
-      <a class="btn_01 fadeUpTrigger delay-time06" href="">一覧を見る</a>
+      
+      <a class="btn_01 fadeUpTrigger delay-time06" href="/blogs/news">一覧を見る</a>
     </div>
   </section>
 {% schema %}

@@ -1,0 +1,54 @@
+ <!------------------------ 下層ファーストビュー ---------------------->
+ <section id="fv_under">
+    <img class="fv_deco_01" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_01.png" alt="">
+    <div class="section_title">
+        <img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/section_title2.png" alt="">
+        <h1>新着情報</h1>
+        <span>NEWS</span>
+    </div>
+    <img class="fv_deco_02" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_02.png" alt="">
+    <img class="under_nami" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_nami.png" alt="">
+</section>
+
+<!------------------------ 記事一覧 ---------------------->
+
+<section id="news">
+    <div class="section_inner">
+        <ul class="news_list">
+            {% paginate blogs['news'].articles by 9 %}
+                {% for article in blogs['news'].articles %}
+                    <li>
+                        <span class="news_tag">{{ article.tags | join: ', ' }}</span>
+                        <span class="news_date">{{ article.published_at | date: '%Y.%m.%d' }}</span>
+                        <h2>{{ article.title }}</h2>
+                        <p>{{ article.content | strip_html | truncate: 60 }}</p>
+                        <a href="{{ article.url }}" class="btn_02">詳しく見る</a>
+                    </li>
+                {% endfor %}
+            {% endpaginate %}
+        </ul>
+        
+        <div class="pagination">
+            <ul>
+                {% if paginate.previous.is_link %}
+                    <li><a class="previous_page" href="{{ paginate.previous.url }}"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/previous_page.svg" alt=""></a></li>
+                {% endif %}
+        
+                {% for part in paginate.parts %}
+                    {% if part.is_link %}
+                        <li><a href="{{ part.url }}">{{ part.title }}</a></li>
+                    {% elsif part.is_gap %}
+                        <li><span>...</span></li>
+                    {% else %}
+                        <li><a class="page_active" href="{{ part.url }}">{{ part.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+        
+                {% if paginate.next.is_link %}
+                    <li><a class="next_page" href="{{ paginate.next.url }}"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/next_page.svg" alt=""></a></li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </div>
+</section>

@@ -1,0 +1,73 @@
+  <!------------------------ 下層ファーストビュー ---------------------->
+  <section id="fv_under">
+    <img class="fv_deco_01" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_01.png" alt="">
+    <div class="section_title">
+        <img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/section_title2.png" alt="">
+        <h1>検索結果</h1>
+        <span>SEARCH</span>
+    </div>
+    <img class="fv_deco_02" src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/under_fv_deco_02.png" alt="">
+</section>
+
+{% layout 'theme' %}
+<section id="list">
+    <div class="section_inner">
+        <!-- 並び順 -->
+        <div class="sort_wrap">
+            <span>並び順：</span>
+            <select name="sort_by" id="SortBy" class="sort">
+                <option value="manual">おすすめ順</option>
+                <option value="created-descending">新着順</option>
+                <option value="price-ascending">価格が安い順</option>
+                <option value="price-descending">価格が高い順</option>
+            </select>
+        </div>
+
+        <ul class="product_list">
+            {% if search.results_count > 0 %}
+                {% for item in search.results %}
+                    {% if item.object_type == 'product' %}
+                        <li>
+                            <a href="{{ item.url }}">
+                                <div class="product_img">
+                                    <img src="{{ item.featured_image | img_url: 'master' }}" alt="">
+                                </div>
+                                {% for tag in item.tags %}
+                                    <span class="product_category">{{ tag }}</span>
+                                {% endfor %}
+                                {{ item.title }}
+                                <span class="product_price">{{ item.price | money }}（税込）</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>検索結果が見つかりませんでした。</p>
+            {% endif %}
+        </ul>
+
+        {% comment %} {% if search.results_count > 0 %}
+            <div class="pagination">
+                {% paginate search.results by 9 %}
+                    <ul>
+                        {% if paginate.previous %}
+                            <li><a class="previous_page" href="{{ paginate.previous.url }}"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/previous_page.svg" alt=""></a></li>
+                        {% endif %}
+                        {% for i in (1..paginate.pages) %}
+                            <li>
+                                {% if paginate.current_page == i %}
+                                    <a class="page_active" href="">{{ i }}</a>
+                                {% else %}
+                                    <a href="{{ paginate.page_url }}" class="page">{{ i }}</a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                        {% if paginate.next %}
+                            <li><a class="next_page" href="{{ paginate.next.url }}"><img src="https://cdn.shopify.com/s/files/1/0637/0174/5872/files/next_page.svg" alt=""></a></li>
+                        {% endif %}
+                    </ul>
+                {% endpaginate %}
+            </div>
+        {% endif %} {% endcomment %}
+    </div>
+</section>
