@@ -234,52 +234,15 @@
             box-sizing: inherit;
           }
 
-          html {
-            box-sizing: border-box;
-            /* font-size: calc(var(--font-body-scale) * 62.5%);
-            height: 100%; */
-          }
 
-          body{
-            font-family: YakuHanJP, "Zen Kaku Gothic New", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo,
-        sans-serif;
-      font-weight: 500;
-      font-style: normal;
-          }
-
-          /* main {
-  position: relative;
-  z-index: 0;
-  background-image: url(https://cdn.shopify.com/s/files/1/0637/0174/5872/files/bg.png);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
- 
-} */
-
-          /* body {
-            display: grid;
-            grid-template-rows: auto auto 1fr auto;
-            grid-template-columns: 100%;
-            min-height: 100%;
-            margin: 0;
-            font-size: 1.5rem;
-            letter-spacing: 0.06rem;
-            line-height: calc(1 + 0.8 / var(--font-body-scale));
-            font-family: var(--font-body-family);
-            font-style: var(--font-body-style);
-            font-weight: var(--font-body-weight);
-          } */
-
-          @media screen and (min-width: 750px) {
-            main {
-              overflow: hidden;
-            }
-          }
     {% endstyle %}
     
+{% comment %} 
+    {{ 'base.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {% if template.name == 'cart' or template.name == 'search' or template.name == 'account' or template.name == 'addresses' or template.name == 'login' or template.name == 'order' or template.name == 'register' %}
+      {{ 'base.css' | asset_url | stylesheet_tag }}
+      {% endif %}
 
     {{ 'reset.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
